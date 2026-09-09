@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Inventory Server
 -- ===
--- === Build : 319
+-- === Build : 329
 -- ======================================================================
 
 CREATE TABLE trading_session
@@ -68,6 +68,7 @@ CREATE TABLE connection
     supports_broker         tinyint       not null,
     supports_multiple_data  tinyint       not null,
     supports_inventory      tinyint       not null,
+    supports_account        tinyint       not null,
     created_at              datetime      not null,
     updated_at              datetime,
 
@@ -104,20 +105,47 @@ CREATE INDEX agent_profileIDX1 ON agent_profile(username);
 
 -- ======================================================================
 
+CREATE TABLE account
+  (
+    id                int            auto_increment,
+    username          varchar(32)    not null,
+    connection_id     int            not null,
+    currency_id       int            not null,
+    code              varchar(64)    not null,
+    name              varchar(64)    not null,
+    current_capital   double         not null,
+    supports_account  tinyint        not null,
+    status_message    varchar(255),
+    created_at        datetime       not null,
+    updated_at        datetime,
+
+    primary key(id),
+    unique(username,connection_id,code),
+
+    foreign key(connection_id) references connection(id),
+    foreign key(currency_id) references currency(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX accountIDX1 ON account(username);
+
+-- ======================================================================
+
 CREATE TABLE portfolio
   (
-    id           int           auto_increment,
-    username     varchar(32)   not null,
-    name         varchar(64)   not null,
-    currency_id  int           not null,
-    capital      int           not null,
-    target_risk  int           not null,
-    created_at   datetime      not null,
-    updated_at   datetime,
+    id               int           auto_increment,
+    username         varchar(32)   not null,
+    account_id       int           not null,
+    name             varchar(64)   not null,
+    management       char(1)       not null,
+    account_perc     smallint      not null,
+    max_margin_perc  smallint      not null,
+    created_at       datetime      not null,
+    updated_at       datetime,
 
     primary key(id),
 
-    foreign key(currency_id) references currency(id)
+    foreign key(account_id) references account(id)
   )
  ENGINE = InnoDB ;
 
@@ -233,6 +261,7 @@ CREATE TABLE trading_system
     in_sample_from      int            not null,
     in_sample_to        int            not null,
     engine_code         varchar(16)    not null,
+    portfolio_id        int,
     created_at          datetime       not null,
     updated_at          datetime,
 
@@ -241,7 +270,8 @@ CREATE TABLE trading_system
     foreign key(data_product_id) references data_product(id),
     foreign key(broker_product_id) references broker_product(id),
     foreign key(trading_session_id) references trading_session(id),
-    foreign key(agent_profile_id) references agent_profile(id)
+    foreign key(agent_profile_id) references agent_profile(id),
+    foreign key(portfolio_id) references portfolio(id)
   )
  ENGINE = InnoDB ;
 

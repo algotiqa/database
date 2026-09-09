@@ -1,16 +1,28 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Portfolio Trader
 -- ===
--- === Build : 319
+-- === Build : 328
 -- ======================================================================
 
 CREATE TABLE portfolio
   (
-    id        int,
-    username  varchar(32)   not null,
-    name      varchar(64)   not null,
+    id                       int,
+    username                 varchar(32)   not null,
+    name                     varchar(64)   not null,
+    management               char(1)       not null,
+    account_perc             smallint      not null,
+    max_margin_perc          smallint      not null,
+    account_id               int           not null,
+    account_currency_id      int           not null,
+    account_currency_code    varchar(16)   not null,
+    account_currency_symbol  varchar(4)    not null,
+    account_code             varchar(64)   not null,
+    account_name             varchar(64)   not null,
+    account_current_capital  double        not null,
+    account_active           tinyint       not null,
 
-    primary key(id)
+    primary key(id),
+    unique(account_code)
   )
  ENGINE = InnoDB ;
 
