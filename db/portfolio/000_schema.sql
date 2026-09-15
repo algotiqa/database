@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Portfolio Trader
 -- ===
--- === Build : 335
+-- === Build : 337
 -- ======================================================================
 
 CREATE TABLE portfolio
@@ -62,7 +62,6 @@ CREATE TABLE trading_system
     trading               tinyint         not null,
     running               tinyint         not null,
     auto_activation       tinyint         not null,
-    active                tinyint         not null,
     status                tinyint         not null,
     suggested_action      tinyint         not null,
     first_trade           datetime,
