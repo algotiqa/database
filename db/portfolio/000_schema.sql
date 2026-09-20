@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Portfolio Trader
 -- ===
--- === Build : 337
+-- === Build : 342
 -- ======================================================================
 
 CREATE TABLE portfolio
@@ -11,6 +11,8 @@ CREATE TABLE portfolio
     name                     varchar(64)   not null,
     account_perc             smallint      not null,
     max_margin_perc          smallint      not null,
+    correlation_period       int           not null,
+    run_period               int           not null,
     account_id               int           not null,
     account_currency_id      int           not null,
     account_currency_code    varchar(16)   not null,
@@ -22,8 +24,7 @@ CREATE TABLE portfolio
     connection_id            int           not null,
     supports_accounting      tinyint       not null,
 
-    primary key(id),
-    unique(connection_id)
+    primary key(id)
   )
  ENGINE = InnoDB ;
 
@@ -204,6 +205,64 @@ CREATE TABLE outbox
     primary key(id)
   )
  ENGINE = InnoDB ;
+
+-- ======================================================================
+
+CREATE TABLE allocation
+  (
+    id                  int        auto_increment,
+    portfolio_id        int        not null,
+    run_date            datetime   not null,
+    run_type            char(1)    not null,
+    status              char(1)    not null,
+    account_perc        smallint   not null,
+    max_margin_perc     smallint   not null,
+    correlation_period  int        not null,
+    account_capital     double     not null,
+
+    primary key(id),
+
+    foreign key(portfolio_id) references portfolio(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX allocationIDX1 ON allocation(portfolio_id);
+
+-- ======================================================================
+
+CREATE TABLE allocation_filter
+  (
+    id                 int             auto_increment,
+    allocation_id      int             not null,
+    trading_system_id  int             not null,
+    filter_passed      tinyint         not null,
+    comment            varchar(1024),
+
+    primary key(id),
+
+    foreign key(allocation_id) references allocation(id),
+    foreign key(trading_system_id) references trading_system(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX allocation_filterIDX1 ON allocation_filter(allocation_id);
+
+-- ======================================================================
+
+CREATE TABLE allocation_log
+  (
+    id             int             auto_increment,
+    allocation_id  int             not null,
+    level          char(1)         not null,
+    message        varchar(1024)   not null,
+
+    primary key(id),
+
+    foreign key(allocation_id) references allocation(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX allocation_logIDX1 ON allocation_log(allocation_id);
 
 -- ======================================================================
 

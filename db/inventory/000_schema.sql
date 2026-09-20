@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Inventory Server
 -- ===
--- === Build : 334
+-- === Build : 340
 -- ======================================================================
 
 CREATE TABLE trading_session
@@ -133,14 +133,16 @@ CREATE INDEX accountIDX1 ON account(username);
 
 CREATE TABLE portfolio
   (
-    id               int           auto_increment,
-    username         varchar(32)   not null,
-    account_id       int           not null,
-    name             varchar(64)   not null,
-    account_perc     smallint      not null,
-    max_margin_perc  smallint      not null,
-    created_at       datetime      not null,
-    updated_at       datetime,
+    id                  int           auto_increment,
+    username            varchar(32)   not null,
+    account_id          int           not null,
+    name                varchar(64)   not null,
+    account_perc        smallint      not null,
+    max_margin_perc     smallint      not null,
+    correlation_period  int           not null,
+    run_period          int           not null,
+    created_at          datetime      not null,
+    updated_at          datetime,
 
     primary key(id),
 
