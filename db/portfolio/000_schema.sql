@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Portfolio Trader
 -- ===
--- === Build : 342
+-- === Build : 346
 -- ======================================================================
 
 CREATE TABLE portfolio
@@ -199,7 +199,7 @@ CREATE TABLE outbox
     timestamp  datetime      not null,
     exchange   varchar(64)   not null,
     uuid       varchar(64)   not null,
-    payload    mediumblob    not null,
+    payload    longblob      not null,
     size       int           not null,
 
     primary key(id)
@@ -232,13 +232,10 @@ CREATE INDEX allocationIDX1 ON allocation(portfolio_id);
 
 CREATE TABLE allocation_filter
   (
-    id                 int             auto_increment,
     allocation_id      int             not null,
     trading_system_id  int             not null,
     filter_passed      tinyint         not null,
     comment            varchar(1024),
-
-    primary key(id),
 
     foreign key(allocation_id) references allocation(id),
     foreign key(trading_system_id) references trading_system(id)
@@ -263,6 +260,38 @@ CREATE TABLE allocation_log
  ENGINE = InnoDB ;
 
 CREATE INDEX allocation_logIDX1 ON allocation_log(allocation_id);
+
+-- ======================================================================
+
+CREATE TABLE system_correlation
+  (
+    allocation_id       int             not null,
+    trading_system1_id  int             not null,
+    trading_system2_id  int             not null,
+    correlation         double          not null,
+    message             varchar(1024),
+
+    foreign key(allocation_id) references allocation(id),
+    foreign key(trading_system1_id) references trading_system(id),
+    foreign key(trading_system2_id) references trading_system(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX system_correlationIDX1 ON system_correlation(allocation_id);
+
+-- ======================================================================
+
+CREATE TABLE daily_return
+  (
+    trading_system_id  int      not null,
+    date               int      not null,
+    gross_return       double   not null,
+
+    foreign key(trading_system_id) references trading_system(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX daily_returnIDX1 ON daily_return(trading_system_id);
 
 -- ======================================================================
 

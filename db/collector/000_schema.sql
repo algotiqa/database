@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Data Collector
 -- ===
--- === Build : 322
+-- === Build : 347
 -- ======================================================================
 
 CREATE TABLE data_product
@@ -71,7 +71,7 @@ CREATE TABLE outbox
     timestamp  datetime      not null,
     exchange   varchar(64)   not null,
     uuid       varchar(64)   not null,
-    payload    mediumblob    not null,
+    payload    longblob      not null,
     size       int           not null,
 
     primary key(id)
