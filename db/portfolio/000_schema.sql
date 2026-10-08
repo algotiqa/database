@@ -1,28 +1,30 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Portfolio Trader
 -- ===
--- === Build : 346
+-- === Build : 352
 -- ======================================================================
 
 CREATE TABLE portfolio
   (
     id                       int,
-    username                 varchar(32)   not null,
-    name                     varchar(64)   not null,
-    account_perc             smallint      not null,
-    max_margin_perc          smallint      not null,
-    correlation_period       int           not null,
-    run_period               int           not null,
-    account_id               int           not null,
-    account_currency_id      int           not null,
-    account_currency_code    varchar(16)   not null,
-    account_currency_symbol  varchar(4)    not null,
-    account_code             varchar(64)   not null,
-    account_name             varchar(64)   not null,
-    account_current_capital  double        not null,
-    account_active           tinyint       not null,
-    connection_id            int           not null,
-    supports_accounting      tinyint       not null,
+    username                 varchar(32)     not null,
+    name                     varchar(64)     not null,
+    account_perc             smallint        not null,
+    max_margin_perc          smallint        not null,
+    correlation_period       int             not null,
+    run_period               int             not null,
+    builder_name             varchar(16)     not null,
+    builder_config           varchar(1024)   not null,
+    account_id               int             not null,
+    account_currency_id      int             not null,
+    account_currency_code    varchar(16)     not null,
+    account_currency_symbol  varchar(4)      not null,
+    account_code             varchar(64)     not null,
+    account_name             varchar(64)     not null,
+    account_current_capital  double          not null,
+    account_active           tinyint         not null,
+    connection_id            int             not null,
+    supports_accounting      tinyint         not null,
 
     primary key(id)
   )
@@ -208,79 +210,6 @@ CREATE TABLE outbox
 
 -- ======================================================================
 
-CREATE TABLE allocation
-  (
-    id                  int        auto_increment,
-    portfolio_id        int        not null,
-    run_date            datetime   not null,
-    run_type            char(1)    not null,
-    status              char(1)    not null,
-    account_perc        smallint   not null,
-    max_margin_perc     smallint   not null,
-    correlation_period  int        not null,
-    account_capital     double     not null,
-
-    primary key(id),
-
-    foreign key(portfolio_id) references portfolio(id)
-  )
- ENGINE = InnoDB ;
-
-CREATE INDEX allocationIDX1 ON allocation(portfolio_id);
-
--- ======================================================================
-
-CREATE TABLE allocation_filter
-  (
-    allocation_id      int             not null,
-    trading_system_id  int             not null,
-    filter_passed      tinyint         not null,
-    comment            varchar(1024),
-
-    foreign key(allocation_id) references allocation(id),
-    foreign key(trading_system_id) references trading_system(id)
-  )
- ENGINE = InnoDB ;
-
-CREATE INDEX allocation_filterIDX1 ON allocation_filter(allocation_id);
-
--- ======================================================================
-
-CREATE TABLE allocation_log
-  (
-    id             int             auto_increment,
-    allocation_id  int             not null,
-    level          char(1)         not null,
-    message        varchar(1024)   not null,
-
-    primary key(id),
-
-    foreign key(allocation_id) references allocation(id)
-  )
- ENGINE = InnoDB ;
-
-CREATE INDEX allocation_logIDX1 ON allocation_log(allocation_id);
-
--- ======================================================================
-
-CREATE TABLE system_correlation
-  (
-    allocation_id       int             not null,
-    trading_system1_id  int             not null,
-    trading_system2_id  int             not null,
-    correlation         double          not null,
-    message             varchar(1024),
-
-    foreign key(allocation_id) references allocation(id),
-    foreign key(trading_system1_id) references trading_system(id),
-    foreign key(trading_system2_id) references trading_system(id)
-  )
- ENGINE = InnoDB ;
-
-CREATE INDEX system_correlationIDX1 ON system_correlation(allocation_id);
-
--- ======================================================================
-
 CREATE TABLE daily_return
   (
     trading_system_id  int      not null,
@@ -292,6 +221,29 @@ CREATE TABLE daily_return
  ENGINE = InnoDB ;
 
 CREATE INDEX daily_returnIDX1 ON daily_return(trading_system_id);
+
+-- ======================================================================
+
+CREATE TABLE allocation
+  (
+    id                  int        auto_increment,
+    portfolio_id        int        not null,
+    run_date            datetime   not null,
+    run_type            char(1)    not null,
+    status              char(1)    not null,
+    account_perc        smallint   not null,
+    max_margin_perc     smallint   not null,
+    correlation_period  int        not null,
+    account_capital     double     not null,
+    report              longtext,
+
+    primary key(id),
+
+    foreign key(portfolio_id) references portfolio(id)
+  )
+ ENGINE = InnoDB ;
+
+CREATE INDEX allocationIDX1 ON allocation(portfolio_id);
 
 -- ======================================================================
 
