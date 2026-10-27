@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Portfolio Trader
 -- ===
--- === Build : 353
+-- === Build : 355
 -- ======================================================================
 
 CREATE TABLE portfolio
@@ -12,7 +12,9 @@ CREATE TABLE portfolio
     account_perc             smallint        not null,
     max_margin_perc          smallint        not null,
     correlation_period       int             not null,
+    period_type              char(2)         not null,
     run_period               int             not null,
+    paused                   tinyint         not null,
     builder_name             varchar(16)     not null,
     builder_config           varchar(1024)   not null,
     account_id               int             not null,
@@ -91,23 +93,7 @@ CREATE INDEX trading_systemIDX1 ON trading_system(username);
 CREATE TABLE trading_filter
   (
     trading_system_id  int,
-    equ_avg_enabled    tinyint    not null,
-    equ_avg_len        smallint   not null,
-    pos_pro_enabled    tinyint    not null,
-    pos_pro_len        smallint   not null,
-    win_per_enabled    tinyint    not null,
-    win_per_len        tinyint    not null,
-    win_per_value      tinyint    not null,
-    old_new_enabled    tinyint    not null,
-    old_new_old_len    smallint   not null,
-    old_new_old_perc   smallint   not null,
-    old_new_new_len    smallint   not null,
-    trendline_enabled  tinyint    not null,
-    trendline_len      smallint   not null,
-    trendline_value    smallint   not null,
-    drawdown_enabled   tinyint    not null,
-    drawdown_min       smallint   not null,
-    drawdown_max       smallint   not null,
+    config             varchar(4096)   not null,
 
     primary key(trading_system_id),
 

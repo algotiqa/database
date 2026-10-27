@@ -1,7 +1,7 @@
 -- ======================================================================
 -- ===   Sql Script for Database : Inventory Server
 -- ===
--- === Build : 353
+-- === Build : 355
 -- ======================================================================
 
 CREATE TABLE trading_session
@@ -140,7 +140,9 @@ CREATE TABLE portfolio
     account_perc        smallint      not null,
     max_margin_perc     smallint      not null,
     correlation_period  int           not null,
+    period_type         char(2)       not null,
     run_period          int           not null,
+    paused              tinyint       not null,
     created_at          datetime      not null,
     updated_at          datetime,
 

@@ -2,8 +2,8 @@
 
 <project version="2">
 	<attribs>
-		<attrib name="build">353</attrib>
-		<attrib name="serial">78112</attrib>
+		<attrib name="build">355</attrib>
+		<attrib name="serial">79590</attrib>
 	</attribs>
 	<database>
 		<attribs>
@@ -1336,7 +1336,7 @@
 			<query>
 				<attribs>
 					<attrib name="name">Add column</attrib>
-					<attrib name="sqlCode">alter table portfolio add run_period int not null</attrib>
+					<attrib name="sqlCode">alter table portfolio add period_type char(2) not null default &quot;WE&quot;</attrib>
 				</attribs>
 				<modsConfig/>
 			</query>
@@ -5444,12 +5444,68 @@ WHERE (trading_system.portfolio_id &lt;&gt; 4 OR trading_system.portfolio_id IS 
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">0</attrib>
+						<attrib name="name">period_type</attrib>
+						<attrib name="id">78872</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">21343</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
 						<attrib name="name">run_period</attrib>
 						<attrib name="id">73978</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
 						<attrib name="type">5</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">paused</attrib>
+						<attrib name="id">78869</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">18</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -6867,6 +6923,27 @@ WHERE (trading_system.portfolio_id &lt;&gt; 4 OR trading_system.portfolio_id IS 
 								</list>
 							</domain>
 						</alias>
+						<alias>
+							<attribs>
+								<attrib name="name">varchar-4096</attrib>
+								<attrib name="ddEquiv"/>
+								<attrib name="id">78404</attrib>
+								<attrib name="size">4096</attrib>
+							</attribs>
+							<domain>
+								<attribs>
+									<attrib name="minValue"/>
+									<attrib name="outRange">false</attrib>
+									<attrib name="maxValue"/>
+									<attrib name="type">none</attrib>
+								</attribs>
+								<list>
+									<header>
+										<elem>value</elem>
+									</header>
+								</list>
+							</domain>
+						</alias>
 					</aliases>
 				</type>
 			</varFolder>
@@ -6875,7 +6952,7 @@ WHERE (trading_system.portfolio_id &lt;&gt; 4 OR trading_system.portfolio_id IS 
 			<query>
 				<attribs>
 					<attrib name="name">Add Column</attrib>
-					<attrib name="sqlCode">alter table portfolio add run_period int not null</attrib>
+					<attrib name="sqlCode">alter table portfolio add period_type char(2) not null default &quot;WE&quot;</attrib>
 				</attribs>
 				<modsConfig/>
 			</query>
@@ -7204,8 +7281,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -7233,8 +7310,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7262,8 +7339,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7291,8 +7368,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7320,8 +7397,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7349,8 +7426,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7378,8 +7455,37 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="name">period_type</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="matchType">s</attrib>
+						<attrib name="id">79119</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">23283</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7407,8 +7513,37 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
+							<attrib name="83">false</attrib>
+							<attrib name="17">true</attrib>
+							<attrib name="16">false</attrib>
+							<attrib name="15">false</attrib>
+							<attrib name="339"/>
+							<attrib name="338">false</attrib>
+							<attrib name="340">false</attrib>
+						</attribs>
+					</fieldAttribs>
+					<attribs>
+						<attrib name="comment"/>
+						<attrib name="matchType">s</attrib>
+						<attrib name="refField">0</attrib>
+						<attrib name="name">paused</attrib>
+						<attrib name="id">78644</attrib>
+						<attrib name="onDelete">n</attrib>
+						<attrib name="onUpdate">n</attrib>
+						<attrib name="refTable">0</attrib>
+						<attrib name="type">18</attrib>
+					</attribs>
+					<modsConfig/>
+				</field>
+				<field>
+					<fieldAttribs>
+						<attribs>
+							<attrib name="86">false</attrib>
+							<attrib name="85">false</attrib>
+							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7436,8 +7571,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7465,8 +7600,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7494,8 +7629,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7523,8 +7658,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7552,8 +7687,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7581,8 +7716,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7610,8 +7745,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7639,8 +7774,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7668,8 +7803,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7697,8 +7832,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7726,8 +7861,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7805,8 +7940,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -7834,8 +7969,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7863,8 +7998,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7892,8 +8027,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7939,8 +8074,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7968,8 +8103,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -7997,8 +8132,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8026,8 +8161,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8055,8 +8190,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8084,8 +8219,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8113,8 +8248,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8142,8 +8277,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8171,8 +8306,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8200,8 +8335,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8255,8 +8390,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8284,8 +8419,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8313,8 +8448,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8342,8 +8477,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8371,8 +8506,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8400,8 +8535,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8429,8 +8564,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8458,8 +8593,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8487,8 +8622,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8534,8 +8669,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8563,8 +8698,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8592,8 +8727,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8635,8 +8770,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8676,8 +8811,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8705,8 +8840,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8734,8 +8869,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8781,8 +8916,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -8828,8 +8963,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8857,8 +8992,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8886,8 +9021,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8915,8 +9050,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8944,8 +9079,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -8973,8 +9108,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -9002,8 +9137,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9031,8 +9166,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9060,8 +9195,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9089,8 +9224,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9168,8 +9303,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -9212,476 +9347,12 @@ group by trading_system_id,trade_id</attrib>
 						<attrib name="comment"/>
 						<attrib name="matchType">s</attrib>
 						<attrib name="refField">0</attrib>
-						<attrib name="name">equ_avg_enabled</attrib>
-						<attrib name="id">23537</attrib>
+						<attrib name="name">config</attrib>
+						<attrib name="id">78166</attrib>
 						<attrib name="onDelete">n</attrib>
 						<attrib name="onUpdate">n</attrib>
 						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">equ_avg_len</attrib>
-						<attrib name="id">24386</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">pos_pro_enabled</attrib>
-						<attrib name="id">24388</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">pos_pro_len</attrib>
-						<attrib name="id">24392</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">win_per_enabled</attrib>
-						<attrib name="id">24396</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">win_per_len</attrib>
-						<attrib name="id">24400</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">win_per_value</attrib>
-						<attrib name="id">24404</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">old_new_enabled</attrib>
-						<attrib name="id">24408</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">old_new_old_len</attrib>
-						<attrib name="id">24412</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">old_new_old_perc</attrib>
-						<attrib name="id">24414</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">old_new_new_len</attrib>
-						<attrib name="id">24418</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">trendline_enabled</attrib>
-						<attrib name="id">35906</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">trendline_len</attrib>
-						<attrib name="id">35910</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">trendline_value</attrib>
-						<attrib name="id">35914</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">drawdown_enabled</attrib>
-						<attrib name="id">42422</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">18</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">drawdown_min</attrib>
-						<attrib name="id">42426</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
-					</attribs>
-					<modsConfig/>
-				</field>
-				<field>
-					<fieldAttribs>
-						<attribs>
-							<attrib name="86">false</attrib>
-							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
-							<attrib name="60840">false</attrib>
-							<attrib name="83">false</attrib>
-							<attrib name="17">true</attrib>
-							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
-							<attrib name="339"/>
-							<attrib name="338">false</attrib>
-							<attrib name="340">false</attrib>
-						</attribs>
-					</fieldAttribs>
-					<attribs>
-						<attrib name="comment"/>
-						<attrib name="matchType">s</attrib>
-						<attrib name="refField">0</attrib>
-						<attrib name="name">drawdown_max</attrib>
-						<attrib name="id">42430</attrib>
-						<attrib name="onDelete">n</attrib>
-						<attrib name="onUpdate">n</attrib>
-						<attrib name="refTable">0</attrib>
-						<attrib name="type">6</attrib>
+						<attrib name="type">78404</attrib>
 					</attribs>
 					<modsConfig/>
 				</field>
@@ -9740,8 +9411,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -9769,8 +9440,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9798,8 +9469,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9827,8 +9498,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -9856,8 +9527,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9885,8 +9556,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9914,8 +9585,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9943,8 +9614,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -9972,8 +9643,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10052,8 +9723,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">true</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10081,8 +9752,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10110,8 +9781,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10148,8 +9819,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10177,8 +9848,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10206,8 +9877,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10235,8 +9906,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10264,8 +9935,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10293,8 +9964,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10322,8 +9993,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10351,8 +10022,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10380,8 +10051,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10409,8 +10080,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10438,8 +10109,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10467,8 +10138,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10547,8 +10218,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10576,8 +10247,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10610,8 +10281,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10639,8 +10310,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10718,8 +10389,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">true</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10747,8 +10418,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10776,8 +10447,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10805,8 +10476,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10884,8 +10555,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">true</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -10913,8 +10584,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10942,8 +10613,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -10971,8 +10642,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11000,8 +10671,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11029,8 +10700,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11108,8 +10779,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11137,8 +10808,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11166,8 +10837,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11245,8 +10916,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">true</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -11274,8 +10945,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11303,8 +10974,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11332,8 +11003,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11361,8 +11032,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11390,8 +11061,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11419,8 +11090,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11448,8 +11119,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11477,8 +11148,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="84">false</attrib>
 							<attrib name="60840">false</attrib>
+							<attrib name="84">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
@@ -11506,8 +11177,8 @@ group by trading_system_id,trade_id</attrib>
 						<attribs>
 							<attrib name="86">false</attrib>
 							<attrib name="85">false</attrib>
-							<attrib name="60840">false</attrib>
 							<attrib name="84">false</attrib>
+							<attrib name="60840">false</attrib>
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
@@ -20498,8 +20169,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">true</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">true</attrib>
 							<attrib name="51">false</attrib>
+							<attrib name="15">true</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">false</attrib>
@@ -20527,8 +20198,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
 							<attrib name="51">false</attrib>
+							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">true</attrib>
@@ -20556,8 +20227,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
 							<attrib name="51">true</attrib>
+							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">false</attrib>
@@ -20585,8 +20256,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
 							<attrib name="51">false</attrib>
+							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">false</attrib>
@@ -20625,8 +20296,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">false</attrib>
 							<attrib name="17">true</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
 							<attrib name="51">false</attrib>
+							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">false</attrib>
@@ -20654,8 +20325,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
 							<attrib name="51">false</attrib>
+							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">false</attrib>
@@ -20683,8 +20354,8 @@ FROM system_data_1m where time &gt;= '2014-01-01T00:00:00-6' and symbol='ESM14'<
 							<attrib name="83">false</attrib>
 							<attrib name="17">false</attrib>
 							<attrib name="16">false</attrib>
-							<attrib name="15">false</attrib>
 							<attrib name="51">false</attrib>
+							<attrib name="15">false</attrib>
 							<attrib name="339"/>
 							<attrib name="338">false</attrib>
 							<attrib name="340">false</attrib>
